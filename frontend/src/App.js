@@ -9,8 +9,9 @@ import NoPage from './Pages/NoPage';
 import Navbar from './Components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const apiCall = () => {
-  console.log("foo");
+/*
+//const apiCall = () => {
+//  console.log("foo");
   axios.get('http://localhost:4000/user').then((data) => {
     // This console.log will be in our frontend console
     console.log(data);
@@ -18,7 +19,18 @@ const apiCall = () => {
     console.log(e);
   });
 };
+*/
 
+const apiCall = async () => {
+  try {
+    const data = await axios.get('http://localhost:4000/user');
+    console.log(data);
+  } catch(e) {
+    console.log(e);
+  }
+}
+
+//axios and get the path for your authentication 
 function App() {
   return (
     <div>

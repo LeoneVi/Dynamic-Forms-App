@@ -16,7 +16,7 @@ const Navbar = () => {
        <img src={Logo} alt="" />
     </div>
     <div className="navbar-links-container">
-        <button className="primary-button">Sign In</button>
+        <button className="primary-button">Login</button>
     </div>
     <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />

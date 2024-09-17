@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+body{
+    font-family: "Inter", sans-serif;
+    background-color: white;
+}
+
+h1{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800; 
+    font-style: normal;
+    color:#1C1C1C;
+}
+
+.sign-up{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-style: normal;
+
+    color:#7C5FF0;
+    text-decoration: underline;
+}
+
+.inter-header {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700; 
+    font-style: normal;
+  }
+  
+  .inter-body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.home-container{
+    background-color: white;
+}
+
+.home-banner-container {
+    height: 200px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: white;
+  }
+
+  
+.purple-button{
+    padding: 0.9rem 1.75rem;
+    background-color: #7C5FF0;
+    color: #FFFFFF;
+    outline: none;
+    border: none;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-style: normal;
+}
+
+.clear-button{
+    padding: 0.9rem 1.75rem;
+    background-color: white;
+    color: #7C5FF0;
+    outline: none;
+    border: .8px solid #808080;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Normal weight */
+    font-style: normal;
+}
+
+.transparent-button{
+    padding: 0.9rem 1.75rem;
+    background-color: white;
+    color: #7C5FF0;
+    outline: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+
+    text-decoration: underline;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Normal weight */
+    font-style: normal;
+}

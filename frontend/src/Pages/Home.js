@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 import { useNavigate } from 'react-router-dom';
+import '../CSS/Home.css'; 
 
 const Home = () => {
   const navigate = useNavigate();
@@ -9,7 +10,8 @@ const Home = () => {
     <div className="home-container">
       <Navbar />
       <div className="home-banner-container">
-        <div className="home-text-section">
+
+        <div className="home-text-container">
           <h1 className="primary-heading">
             Create, collect, and analyze with ease.
           </h1>
@@ -17,17 +19,21 @@ const Home = () => {
             Get started making forms.
           </p>
           <button 
-            className="primary-button"
+            className="purple-button"
             onClick={() => navigate('/login')}
           >
-            Login
+            Get Started
           </button>
           <button 
-            className="primary-button"
+            className="clear-button"
             onClick={() => navigate('/signup')}
           >
-            Sign up
+            Go to Forms
           </button>
+
+          <div className="image-container">
+            <img src="https://placehold.co/425x543/png"/>
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './CSS/App.css';
 import axios from 'axios';
+
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
+import Dashboard from './Pages/Dashboard';
 import NoPage from './Pages/NoPage';
-import Navbar from './Components/Navbar';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 /*
@@ -38,15 +40,13 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} /> {/* Use element prop */}
-          <Route path="/signup" element={<SignUp />} /> {/* Use element prop */}
-          <Route path="*" element={<NoPage />} /> {/* Use element prop */}
+          <Route path="/login" element={<Login />} /> { }
+          <Route path="/signup" element={<SignUp />} /> { }
+          <Route path="/dashboard" element={<Dashboard />} /> { }
+          <Route path="*" element={<NoPage />} /> { }
         </Routes>
       </BrowserRouter>
     </div>
-    // <div className="App">
-    //   <Home />
-    // </div>
   );
 }
 

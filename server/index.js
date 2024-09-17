@@ -30,10 +30,9 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+module.exports = userModel;
+
 mongoose.connect(process.env.MONGODB_CONNECTION);
-  
-   //   useNewUrlParser: true,
-    //  useUnifiedTopology: true,
 
 const db = mongoose.connection;
  
@@ -48,9 +47,6 @@ app.get("/", async (req, res) => {
             email: "victorialeone9@gmail.com",
             password: "password"
       })
-// access this using localhost:4000
-// only call it once
-// it should create a user
 
       await addUser.save()
 
@@ -62,19 +58,30 @@ app.get('/user', async (req, res) => {//
       if (!myUser) {
             res.status(418)
       }
-// once the above function works, this function should work
-      //res.send("poop");
-      console.log("test")
+
       console.log(myUser)
       res.send(myUser)
 });
 
-
+// To Login
 app.post('/login', async (req, res) => {//
-      console.log(req.body)
+
       const email = req.body.email
       const password = req.body.password
-      const myUser = await User.findOne({email, password}).exec()
+      userModel.findOne({email : email})
+      .then(user => {
+            if(user) {
+                  if(user.password === password){
+                        res.json("Success")
+                  }else{
+                        res.json("The password is incorrect")
+                  }
+            }else{
+                  res.json("No record existed")
+            }
+      })
+      
+   //   const myUser = await User.findOne({email, password}).exec()
       if (!myUser) {
             console.log("not found")
             res.status(404)
@@ -84,6 +91,13 @@ app.post('/login', async (req, res) => {//
             res.status(200)
       }
 });
+
+// To Signup 
+app.post("/signup", async (req,res) => {
+      userModel.create(req.body)
+      .then(user => res.json(user))
+      .catch(err => res.json(err))
+})
 
 app.listen(4000, () => {
       console.log(`server listening on port ${process.env.PORT}`);

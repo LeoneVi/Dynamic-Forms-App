@@ -1,25 +1,32 @@
 import React from "react";
 import { useState } from "react"
+import { useNavigate } from 'react-router-dom';
 import { HiOutlineBars3 } from "react-icons/hi2"
+import '../CSS/Navbar.css'; 
 
-const Logo = () => {
-    <p>Logo Goes Here</p>
-}
 
 const Navbar = () => {
-  const [openMenu, setOpenMenu] = useState(false)
-  const menuOptions = [
 
-  ]
+  const navigate = useNavigate();
+ 
   return <nav>
     <div className="nav-logo-container">
-       <img src={Logo} alt="" />
+       <img src="https://placehold.co/60x70/png"/>
     </div>
+    <h1>Forms</h1>
     <div className="navbar-links-container">
-        <button className="primary-button">Login</button>
-    </div>
-    <div className="navbar-menu-container">
-        <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
+        <button 
+          className="transparent-button"
+          onClick={() => navigate('/signup')}
+        > 
+          Sign up
+        </button>
+        <button 
+          className="clear-button"
+          onClick={() => navigate('/login')}
+        >
+          Login
+        </button>
     </div>
   </nav>;
 }

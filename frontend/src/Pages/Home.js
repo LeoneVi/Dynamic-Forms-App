@@ -6,6 +6,8 @@ import '../CSS/Home.css';
 const Home = () => {
   const navigate = useNavigate();
 
+  //<img src="https://placehold.co/425x543/png"/>
+
   return (
     <div className="home-container">
       <Navbar />
@@ -32,7 +34,7 @@ const Home = () => {
           </button>
 
           <div className="image-container">
-            <img src="https://placehold.co/425x543/png"/>
+          
           </div>
         </div>
       </div>

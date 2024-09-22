@@ -1,15 +1,12 @@
 require('dotenv').config()
 
-
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 
-
 app.use(cors());
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -26,11 +23,10 @@ const userSchema = new mongoose.Schema({
       },
 });
 
-// Export the user model
-
+// Create and export the User model
 const User = mongoose.model("User", userSchema);
 
-module.exports = userModel;
+module.exports = User;  // Change this line to export User
 
 mongoose.connect(process.env.MONGODB_CONNECTION);
 
@@ -40,7 +36,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
       console.log('Connected to MongoDB');
 });
-
 
 app.get("/", async (req, res) => {
       const addUser  = new User({
@@ -53,7 +48,7 @@ app.get("/", async (req, res) => {
       res.send("saved")
 })
 
-app.get('/user', async (req, res) => {//
+app.get('/user', async (req, res) => {
       const myUser = await User.findOne({email:'victorialeone9@gmail.com'}).exec()
       if (!myUser) {
             res.status(418)
@@ -64,11 +59,11 @@ app.get('/user', async (req, res) => {//
 });
 
 // To Login
-app.post('/login', async (req, res) => {//
-
+app.post('/login', async (req, res) => {
       const email = req.body.email
       const password = req.body.password
-      userModel.findOne({email : email})
+
+      User.findOne({email: email})
       .then(user => {
             if(user) {
                   if(user.password === password){
@@ -81,7 +76,7 @@ app.post('/login', async (req, res) => {//
             }
       })
       
-   //   const myUser = await User.findOne({email, password}).exec()
+      const myUser = await User.findOne({email, password}).exec()
       if (!myUser) {
             console.log("not found")
             res.status(404)
@@ -93,8 +88,9 @@ app.post('/login', async (req, res) => {//
 });
 
 // To Signup 
-app.post("/signup", async (req,res) => {
-      userModel.create(req.body)
+app.post("/signup", async (req, res) => {
+      console.log(req.body)
+      User.create(req.body)
       .then(user => res.json(user))
       .catch(err => res.json(err))
 })

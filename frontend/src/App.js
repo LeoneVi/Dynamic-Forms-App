@@ -1,28 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './CSS/App.css';
-import axios from 'axios';
+import axios from 'axios'; // axios should be imported before other components
 
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Dashboard from './Pages/Dashboard';
 import NoPage from './Pages/NoPage';
+import CreatePost from './Components/CreatePost'; // Import CreatePost component
+import EditPost from './Components/EditPost'; // Import EditPost component
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Always import at the top
 
-/*
-//const apiCall = () => {
-//  console.log("foo");
-  axios.get('http://localhost:4000/user').then((data) => {
-    // This console.log will be in our frontend console
-    console.log(data);
-  }).catch((e) => {
-    console.log(e);
-  });
-};
-*/
-
+// Function to make an API call (example)
 const apiCall = async () => {
   try {
     const data = await axios.get('http://localhost:4000/user');
@@ -30,9 +19,9 @@ const apiCall = async () => {
   } catch(e) {
     console.log(e);
   }
-}
+};
 
-//axios and get the path for your authentication 
+// Main App component
 function App() {
   return (
     <div>
@@ -40,10 +29,12 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} /> { }
-          <Route path="/signup" element={<SignUp />} /> { }
-          <Route path="/dashboard" element={<Dashboard />} /> { }
-          <Route path="*" element={<NoPage />} /> { }
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/create" element={<CreatePost />} /> {/* Route to create a post */}
+          <Route path="/edit/:postId" element={<EditPost />} /> {/* Route to edit a post */}
+          <Route path="*" element={<NoPage />} /> {/* Fallback for 404 */}
         </Routes>
       </BrowserRouter>
     </div>
@@ -51,4 +42,3 @@ function App() {
 }
 
 export default App;
-

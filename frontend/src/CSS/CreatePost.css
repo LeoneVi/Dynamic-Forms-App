@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f0f0f0; 
+  }
+  
+  .create-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  }
+
+  .create-post-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px; 
+  }
+  
+  label {
+    margin-top: 10px; 
+  }
+  
+  input,
+  textarea {
+    margin-top: 5px; 
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+  }
+  
+  button {
+    margin-top: 15px; 
+    padding: 10px;
+    background-color: #7C5FF0; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+  }
+  
+  button:hover {
+    background-color: #5a43b1; 
+  }
+
+  .placeholder-square {
+    width: 100px;
+    height: 100px; 
+    background-color: #7C5FF0;
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 8px; 
+    position: absolute; /* Change to absolute positioning */
+    top: 20px; /* Adjust the vertical position */
+    right: 20px; /* Adjust the horizontal position */
+}

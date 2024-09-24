@@ -18,7 +18,8 @@ export default function Login() {
       .post(`${BACKEND}`, { email, password })
       .then((result) => {
         console.log(result);
-        if(result.data === "Success"){
+        if(result.data.status === "Success"){
+          localStorage.setItem("userId", result.data.userId);
           navigate("/dashboard")
         }else{
           navigate("/signup")
